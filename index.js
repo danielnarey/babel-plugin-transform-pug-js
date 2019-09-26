@@ -8,21 +8,21 @@ const isEmptyLine = (ln) => (
 
 
 const trimLeft = (pattern) => (ln) => ln.replace(
-  new RegExp(`^${pattern}`), 
+  new RegExp(`^${pattern}`),
   '',
-); 
+);
 
 
 const prepareRaw = (node) => {
-  const raw = node.quasi.quasis[0].value.raw;
+  const { raw } = node.quasi.quasis[0].value;
   const lines = raw.split('\n').filter(!isEmptyLine);
   const rootIndent = /^\s*/.exec(lines[0])[0];
-  
+
   return lines.map(trimLeft(rootIndent)).join('\n');
 };
 
 
-const plugin = function() {
+const plugin = function () {
   return {
     visitor: {
       TaggedTemplateExpression(path) {
@@ -32,8 +32,8 @@ const plugin = function() {
           const transformed = transform(compiled);
           path.replaceWithMultiple(transformed.ast.program.body);
         }
-      }
-    }
+      },
+    },
   };
 };
 
