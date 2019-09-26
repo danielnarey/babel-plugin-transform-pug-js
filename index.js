@@ -1,5 +1,6 @@
 import { compileClient } from 'pug';
 import { transform } from '@babel/core';
+import { ast } from '@babel/template';
 
 
 const isNotEmptyLine = (ln) => (
@@ -30,7 +31,8 @@ const plugin = function babelPluginTransformPugJs() {
           const prepared = prepareRaw(path.node);
           const compiled = compileClient(prepared);
           const transformed = transform(compiled);
-          path.replaceWithSourceString(transformed.code);
+          const parsed = ast(transformed.code);
+          path.replaceWith(parsed);
         }
       },
     },
