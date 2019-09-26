@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-transform-pug-js",
   "version": "0.0.0",
-  "description": "Create an updatable component from any function that generates HTML",
+  "description": "Transpile Pug templates anywhere into JS functions for client-side rendering",
   "source": "index.js",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
