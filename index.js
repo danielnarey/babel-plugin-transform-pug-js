@@ -1,5 +1,5 @@
+import template from '@babel/template';
 import { transform } from '@babel/core';
-import { ast } from '@babel/template';
 import { compileClient } from 'pug';
 
 
@@ -31,7 +31,7 @@ const plugin = function babelPluginTransformPugJs() {
           const prepared = prepareRaw(path.node);
           const compiled = compileClient(prepared);
           const transformed = transform(compiled);
-          const parsed = ast(transformed.code);
+          const parsed = template.ast(transformed.code);
           path.replaceWith(parsed);
         }
       },
