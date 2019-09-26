@@ -29,6 +29,4 @@ test('basic', (t) => {
     doc.getElementById('pElem').innerHTML.replace(/\s/g, ''),
     'Hello,<em>Daniel</em>',
   );
-  
-  t.is(transform(code, { plugins: [plugin] }).code, '');
 });
