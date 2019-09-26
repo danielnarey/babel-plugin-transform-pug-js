@@ -22,7 +22,7 @@ const prepareRaw = (node) => {
 };
 
 
-const plugin = function () {
+const plugin = function babelPluginTransformPugJs() {
   return {
     visitor: {
       TaggedTemplateExpression(path) {

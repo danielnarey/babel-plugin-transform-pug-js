@@ -1,21 +1,16 @@
 import test from 'ava';
 import { JSDOM } from 'jsdom';
 import { transform } from '@babel/core';
-import {
-  setMergeable,
-  setStatic,
-  setUpdatable,
-} from '@danielnarey/componentize';
 import plugin from '../dist/index.cjs';
 
 
 const dom = new JSDOM(`<!DOCTYPE html><div id="root"></div>`);
 const doc = dom.window.document;
 
-const transformer = (code) => {
+const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  return out.code;
+  return new Function(`return ${out.code}`)();
 };
 
 
@@ -25,7 +20,7 @@ test('basic', (t) => {
         em= name
   \``;
   
-  const template = transformer(code);
+  const template = toFunction(code);
   
   doc.getElementById('root').innerHTML = template({ name: 'Daniel' });
   
