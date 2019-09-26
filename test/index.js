@@ -1,6 +1,7 @@
 import test from 'ava';
-import { JSDOM } from 'jsdom';
 import { transform } from '@babel/core';
+import { JSDOM } from 'jsdom';
+import * from 'pug-runtime';
 import plugin from '../dist/index.cjs';
 
 
@@ -20,14 +21,12 @@ test('basic', (t) => {
         em= name
   \``;
   
-  // const template = toFunction(code);
+  const template = toFunction(code);
   
-  // doc.getElementById('root').innerHTML = template({ name: 'Daniel' });
+  doc.getElementById('root').innerHTML = template({ name: 'Daniel' });
   
-  //t.is(
-    //doc.getElementById('pElem').innerHTML.replace(/\s/g, ''),
-    //'Hello,<em>Daniel</em>',
-  //);
-  
-  t.is(transform(code, { plugins: [plugin] }), '');
+  t.is(
+    doc.getElementById('pElem').innerHTML.replace(/\s/g, ''),
+    'Hello,<em>Daniel</em>',
+  );
 });
