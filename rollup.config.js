@@ -5,6 +5,7 @@ export default [
     input: 'index.js',
     external: [
       '@babel/core',
+      '@babel/template',
       'pug',
     ],
     output: [
