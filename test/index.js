@@ -1,7 +1,7 @@
 import test from 'ava';
 import { transform } from '@babel/core';
 import { JSDOM } from 'jsdom';
-import * from 'pug-runtime';
+import wrap from 'pug-runtime/wrap';
 import plugin from '../dist/index.cjs';
 
 
@@ -11,7 +11,7 @@ const doc = dom.window.document;
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  return new Function(`return ${out.code}`)();
+  return wrap(out.code);
 };
 
 

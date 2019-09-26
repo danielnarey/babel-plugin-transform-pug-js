@@ -29,7 +29,10 @@ const plugin = function babelPluginTransformPugJs() {
       TaggedTemplateExpression(path) {
         if (path.node.tag.name === 'pug') {
           const prepared = prepareRaw(path.node);
-          const compiled = compileClient(prepared);
+          const compiled = compileClient(
+            prepared,
+            { inlineRuntimeFunctions: false },
+          );
           const transformed = transform(compiled);
           const parsed = template.ast(transformed.code);
           path.replaceWithMultiple(parsed);
