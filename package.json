@@ -47,7 +47,6 @@
     "eslint-plugin-ava": "^8.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-types": "^1.0.2",
-    "jsdom": "^15.1.1",
     "np": "^5.0.3",
     "pug-runtime": "^2.0.5",
     "rollup": "^1.21.2",

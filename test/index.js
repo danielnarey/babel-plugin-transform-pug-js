@@ -1,12 +1,8 @@
 import test from 'ava';
 import { transform } from '@babel/core';
-import { JSDOM } from 'jsdom';
 import wrap from 'pug-runtime/wrap';
 import plugin from '../dist/index.cjs';
 
-
-const dom = new JSDOM(`<!DOCTYPE html><div id="root"></div>`);
-const doc = dom.window.document;
 
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
@@ -23,10 +19,8 @@ test('basic', (t) => {
   
   const template = toFunction(code);
   
-  doc.getElementById('root').innerHTML = template({ name: 'Daniel' });
-  
   t.is(
-    doc.getElementById('pElem').innerHTML.replace(/\s/g, ''),
-    'Hello,<em>Daniel</em>',
+    template({ name: 'Daniel' }),
+    '<p id="pElem">Hello,<em>Daniel</em></p>',
   );
 });
