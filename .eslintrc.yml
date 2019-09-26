@@ -1,0 +1,19 @@
+extends:
+  - airbnb-base
+  - plugin:ava/recommended
+
+parserOptions:
+  ecmaVersion: 2019
+  sourceType: module
+
+env:
+  node: true
+
+plugins:
+  - types
+  - ava
+
+rules:
+  no-underscore-dangle: off
+  types/assign-type: error
+  types/array-type: error
