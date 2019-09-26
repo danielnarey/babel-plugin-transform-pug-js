@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
+    "@babel/template": "^7.6.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "eslint-plugin-types": "^1.0.2",
     "jsdom": "^15.1.1",
     "np": "^5.0.3",
+    "pug-runtime": "^2.0.5",
     "rollup": "^1.21.2",
     "updtr": "^3.1.0"
   },
