@@ -2,8 +2,8 @@ import { compileClient } from 'pug';
 import { transform } from '@babel/core';
 
 
-const isEmptyLine = (ln) => (
-  ln === '' || !ln.match(/^\s*$/g)
+const isNotEmptyLine = (ln) => (
+  Boolean(ln) && Boolean(ln.match(/^\s*$/g))
 );
 
 
@@ -15,7 +15,7 @@ const trimLeft = (pattern) => (ln) => ln.replace(
 
 const prepareRaw = (node) => {
   const { raw } = node.quasi.quasis[0].value;
-  const lines = raw.split('\n').filter(!isEmptyLine);
+  const lines = raw.split('\n').filter(isNotEmptyLine);
   const rootIndent = /^\s*/.exec(lines[0])[0];
 
   return lines.map(trimLeft(rootIndent)).join('\n');
