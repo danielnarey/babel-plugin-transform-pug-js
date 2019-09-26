@@ -4,7 +4,7 @@ import { compileClient } from 'pug';
 
 
 const isNotEmptyLine = (ln) => (
-  Boolean(ln) && Boolean(ln.match(/^\s*$/g))
+  ln !== '' && !ln.match(/^\s*$/g)
 );
 
 
