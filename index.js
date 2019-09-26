@@ -32,7 +32,7 @@ const plugin = function babelPluginTransformPugJs() {
           const compiled = compileClient(prepared);
           const transformed = transform(compiled);
           const parsed = template.ast(transformed.code);
-          path.replaceWith(parsed);
+          path.replaceWithMultiple(parsed);
         }
       },
     },
