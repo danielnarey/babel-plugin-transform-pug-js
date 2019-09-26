@@ -18,6 +18,7 @@ const greeting = pug`
 const data = { name: 'Daniel' };
 
 myElement.innerHTML = greeting(data);
+// => '<p>Hello,<em>Daniel</em></p>'
 
 ```
 
