@@ -1,7 +1,7 @@
 import test from 'ava';
 import { transform } from '@babel/core';
 import wrap from 'pug-runtime/wrap';
-import plugin from '../dist/index.cjs';
+import plugin from '../dist/index';
 
 
 const toFunction = (code) => {
