@@ -31,7 +31,10 @@ const plugin = function babelPluginTransformPugJs() {
           const prepared = prepareRaw(path.node);
           const compiled = compileClient(
             prepared,
-            { inlineRuntimeFunctions: false },
+            { 
+              compileDebug: false,
+              inlineRuntimeFunctions: false,
+            },
           );
           const transformed = transform(compiled);
           const parsed = template.ast(transformed.code);
