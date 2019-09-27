@@ -31,7 +31,7 @@ const plugin = function babelPluginTransformPugJs() {
           const prepared = prepareRaw(path.node);
           const compiled = compileClient(
             prepared,
-            { 
+            {
               compileDebug: false,
               inlineRuntimeFunctions: false,
             },
