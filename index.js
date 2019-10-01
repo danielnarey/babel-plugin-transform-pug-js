@@ -1,5 +1,4 @@
-import template from '@babel/template';
-import { transform } from '@babel/core';
+import { parse, transform } from '@babel/core';
 import { compileClient } from 'pug';
 
 
@@ -36,9 +35,8 @@ const plugin = function babelPluginTransformPugJs() {
               inlineRuntimeFunctions: false,
             },
           );
-          const transformed = transform(compiled);
-          const parsed = template.ast(transformed.code);
-          path.replaceWithMultiple(parsed);
+          const parsed = parseSync(compiled);
+          path.replaceWithMultiple(parsed.program.body);
         }
       },
     },
