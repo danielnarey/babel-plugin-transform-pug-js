@@ -1,3 +1,4 @@
+import template from '@babel/template';
 import { compileClient } from 'pug';
 
 
@@ -34,7 +35,8 @@ const plugin = function babelPluginTransformPugJs() {
               inlineRuntimeFunctions: false,
             },
           );
-          path.replaceWithSourceString(compiled);
+          const node = template.expression(compiled);
+          path.replaceWith(node);
         }
       },
     },

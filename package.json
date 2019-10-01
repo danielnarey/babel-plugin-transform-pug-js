@@ -36,6 +36,7 @@
     "node": ">=10"
   },
   "dependencies": {
+    "@babel/template": "^7.6.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {
