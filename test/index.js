@@ -7,18 +7,17 @@ import plugin from '../dist/index';
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  //return wrap(out.code);
-  return eval(out.code);
+  return wrap(eval(out.code)());
 };
 
 
 test('basic', (t) => {
-  const code = `wrap(
+  const code = `() =>
     pug\`
       p#pElem Hello,
         em= name
     \`
-  )`;
+  `;
   
   const template = toFunction(code);
   
