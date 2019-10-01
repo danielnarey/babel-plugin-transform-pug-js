@@ -7,7 +7,8 @@ import plugin from '../dist/index';
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  return wrap(out.code);
+  //return wrap(out.code);
+  return out;
 };
 
 
@@ -20,7 +21,7 @@ test('basic', (t) => {
   const template = toFunction(code);
   
   t.is(
-    template({ name: 'Daniel' }),
-    '<p id="pElem">Hello,<em>Daniel</em></p>',
+    template, //template({ name: 'Daniel' }),
+    ''//'<p id="pElem">Hello,<em>Daniel</em></p>',
   );
 });
