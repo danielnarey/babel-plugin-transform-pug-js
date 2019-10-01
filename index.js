@@ -36,7 +36,7 @@ const plugin = function babelPluginTransformPugJs() {
             },
           );
           const node = template.expression.ast(compiled);
-          path.replaceWith(node);
+          path.parentPath.replaceWith(node);
         }
       },
     },
