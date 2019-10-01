@@ -35,8 +35,7 @@ const plugin = function babelPluginTransformPugJs() {
               inlineRuntimeFunctions: false,
             },
           );
-          const parsed = parseSync(compiled);
-          path.replaceWith(parsed.program.body[0]);
+          path.replaceWithSourceString(compiled);
         }
       },
     },
