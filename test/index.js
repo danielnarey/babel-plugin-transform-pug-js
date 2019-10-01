@@ -7,22 +7,22 @@ import plugin from '../dist/index';
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  return out.code;
+  return eval(out.code)(wrap);
 };
 
 
 test('basic', (t) => {
-  const code = `(wrap) => (data) =>
+  const render = `(wrap) => (data) =>
     wrap(pug\`
       p#pElem Hello,
         em= name
     \`)(data)
   `;
   
-  const template = toFunction(code);
+  const template = toFunction(render);
   
   t.is(
-    template, //({ name: 'Daniel' }),
-    ''//'<p id="pElem">Hello,<em>Daniel</em></p>',
+    template({ name: 'Daniel' }),
+    '<p id="pElem">Hello,<em>Daniel</em></p>',
   );
 });
