@@ -12,11 +12,11 @@ const toFunction = (code) => {
 
 
 test('basic', (t) => {
-  const code = `
+  const code = `(data) =>
     pug\`
       p#pElem Hello,
         em= name
-    \`
+    \`(data)
   `;
   
   const template = toFunction(code);
