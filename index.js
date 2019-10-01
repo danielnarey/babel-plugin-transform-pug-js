@@ -1,4 +1,4 @@
-import { parse, transform } from '@babel/core';
+import { parseSync } from '@babel/core';
 import { compileClient } from 'pug';
 
 
