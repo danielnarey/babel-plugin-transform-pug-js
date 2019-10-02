@@ -53,7 +53,8 @@
     "updtr": "^3.1.0"
   },
   "peerDependencies": {
-    "@babel/core": "^7.6.0"
+    "@babel/core": "^7.6.0",
+    "pug-runtime": "^2.0.5"
   },
   "publishConfig": {
     "access": "public"

@@ -32,7 +32,7 @@ const plugin = function babelPluginTransformPugJs() {
             prepared,
             {
               compileDebug: false,
-              inlineRuntimeFunctions: true,
+              inlineRuntimeFunctions: false,
             },
           );
           const node = template.expression.ast(compiled);
