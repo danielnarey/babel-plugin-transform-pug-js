@@ -1,22 +1,21 @@
 import test from 'ava';
 import { transform } from '@babel/core';
-import wrap from 'pug-runtime/wrap';
 import plugin from '../dist/index';
 
 
 const toFunction = (code) => {
   const out = transform(code, { plugins: [plugin] });
   
-  return eval(out.code)(wrap);
+  return eval(out.code);
 };
 
 
 test('basic', (t) => {
-  const render = `(wrap) => (data) =>
-    wrap(pug\`
+  const render = `(data) =>
+    pug\`
       p#pElem Hello,
         em= name
-    \`)(data)
+    \`(data)
   `;
   
   const template = toFunction(render);
