@@ -5,10 +5,12 @@
 
 ## Usage
 
-When this plugin is added to your Babel configuration, the tagged template assigned to `greeting` in the following code will be transpiled into a JavaScript function that takes a data object as an argument and returns a string of HTML. Note that [pug-runtime](https://www.npmjs.com/package/pug-runtime) must be included in your bundle for the transpiled function(s) to work client-side.
+When this plugin is added to your Babel configuration, the tagged template assigned to `greeting` in the following code will be transpiled into a JavaScript function that takes a data object as an argument and returns a string of HTML. Note that [pug-runtime](https://www.npmjs.com/package/pug-runtime) must be imported/required and assigned to the reference `pug` for the transpiled function(s) to work client-side.
 
 
 ```js
+
+import pug from 'pug-runtime';
 
 const greeting = pug`
   p Hello,
