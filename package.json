@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-pug-js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Transpile Pug templates anywhere into JS functions for client-side rendering",
   "source": "index.js",
   "main": "dist/index.js",
